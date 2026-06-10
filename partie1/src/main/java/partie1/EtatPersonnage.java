@@ -1,3 +1,5 @@
+package partie1;
+
 public abstract class EtatPersonnage {
     protected Personnage personnage;
 
