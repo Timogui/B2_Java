@@ -1,4 +1,6 @@
-Paire.class
-LambdaFactory.class
-OutilsGeneriques.class
-Transformation.class
+partie2\Transformation.class
+partie2\Produit.class
+partie2\OutilsGeneriques.class
+partie2\Paire.class
+partie2\BoutiqueService.class
+partie2\LambdaFactory.class

@@ -1,3 +1,4 @@
+package partie2;
 import java.util.function.Function;
 
 public class LambdaFactory {

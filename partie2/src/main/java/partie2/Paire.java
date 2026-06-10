@@ -1,3 +1,5 @@
+package partie2;
+
 public class Paire<A, B> {
     private final A first;
     private final B second;
