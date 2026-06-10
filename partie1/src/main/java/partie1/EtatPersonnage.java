@@ -1,14 +1,77 @@
-public abstract class EtatPersonnage { // (1 pt)
- protected Personnage personnage;
- public abstract String attaquer(String cible);
- public abstract String recevoirPoison();
- public abstract String mourir();
+public abstract class EtatPersonnage {
+    protected Personnage personnage;
+
+    public EtatPersonnage(Personnage personnage) {
+        this.personnage = personnage;
+    }
+
+    public abstract String attaquer(String cible);
+    public abstract String recevoirPoison();
+    public abstract String mourir();
 }
-// EtatVivant : (2 pts)
-// attaquer → "X attaque Y." | recevoirPoison → passe à Empoisonné
-// mourir → passe à Mort
-// EtatEmpoisonné : (2 pts)
-// attaquer → "X attaque Y. X perd 10 PV (poison)"
-// recevoirPoison → "Déjà empoisonné." | mourir → passe à Mort
-// EtatMort : (2 pts)
-// toutes les actions → "Action impossible, X est mort."
+
+class EtatVivant extends EtatPersonnage {
+    public EtatVivant(Personnage personnage) {
+        super(personnage);
+    }
+
+    @Override
+    public String attaquer(String cible) {
+        return personnage.getNom() + " attaque " + cible + ".";
+    }
+
+    @Override
+    public String recevoirPoison() {
+        personnage.setEtat(new EtatEmpoisonne(personnage));
+        return "";
+    }
+
+    @Override
+    public String mourir() {
+        personnage.setEtat(new EtatMort(personnage));
+        return "";
+    }
+}
+
+class EtatEmpoisonne extends EtatPersonnage {
+    public EtatEmpoisonne(Personnage personnage) {
+        super(personnage);
+    }
+
+    @Override
+    public String attaquer(String cible) {
+        return personnage.getNom() + " attaque " + cible + ". " + personnage.getNom() + " perd 10 PV (poison)";
+    }
+
+    @Override
+    public String recevoirPoison() {
+        return "Déjà empoisonné.";
+    }
+
+    @Override
+    public String mourir() {
+        personnage.setEtat(new EtatMort(personnage));
+        return "";
+    }
+}
+
+class EtatMort extends EtatPersonnage {
+    public EtatMort(Personnage personnage) {
+        super(personnage);
+    }
+
+    @Override
+    public String attaquer(String cible) {
+        return "Action impossible, " + personnage.getNom() + " est mort.";
+    }
+
+    @Override
+    public String recevoirPoison() {
+        return "Action impossible, " + personnage.getNom() + " est mort.";
+    }
+
+    @Override
+    public String mourir() {
+        return "Action impossible, " + personnage.getNom() + " est mort.";
+    }
+}
