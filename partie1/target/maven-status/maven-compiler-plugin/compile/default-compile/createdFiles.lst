@@ -1,3 +1,15 @@
+EtatPersonnage.class
+ForgeronEpee.class
+AvecMana.class
+Potion.class
+Forgeron.class
 Personnage$Builder.class
+Arme.class
+ForgeronArc.class
+Arc.class
 Personnage.class
 GameServer.class
+Epee.class
+PotionDeBase.class
+AvecAntidote.class
+PotionDecorator.class
