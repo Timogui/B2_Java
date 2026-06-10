@@ -8,7 +8,7 @@ public abstract class Forgeron {
 
     public final String presenterArme() {
         Arme arme = forger();
-        return "Arme forgé : " + arme.nom() + " (" + arme.degats() + " dégâts)";
+        return "Arme forgée : " + arme.nom() + " (" + arme.degats() + " dégâts)";
     }
 }
 

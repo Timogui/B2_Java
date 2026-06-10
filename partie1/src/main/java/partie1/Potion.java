@@ -45,8 +45,7 @@ class AvecAntidote extends PotionDecorator {
 
     @Override
     public String getEffets() {
-        String base = super.getEffets();
-        return base.isEmpty() ? "Antidote" : base + ", Antidote";
+        return super.getEffets() + ", Antidote";
     }
 }
 
@@ -62,7 +61,6 @@ class AvecMana extends PotionDecorator {
 
     @Override
     public String getEffets() {
-        String base = super.getEffets();
-        return base.isEmpty() ? "Restauration de mana" : base + ", Restauration de mana";
+        return super.getEffets() + ", Restauration de mana";
     }
 }
