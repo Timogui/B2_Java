@@ -1,3 +1,5 @@
+package partie1;
+
 public class Personnage {
     private final String nom; // obligatoire
     private final String classe; // obligatoire (ex: Guerrier, Mage, Voleur)
@@ -5,6 +7,7 @@ public class Personnage {
     private int mana; // défaut : 50
     private String arme; // défaut : "Poings"
     private boolean estElite; // défaut : false
+    private EtatPersonnage etat; // état actuel du personnage
 
     private Personnage(Builder builder) {
         this.nom = builder.nom;
@@ -13,6 +16,19 @@ public class Personnage {
         this.mana = builder.mana;
         this.arme = builder.arme;
         this.estElite = builder.estElite;
+        this.etat = new EtatVivant(this);
+    }
+
+    public String getNom() {
+        return this.nom;
+    }
+
+    public void setEtat(EtatPersonnage etat) {
+        this.etat = etat;
+    }
+
+    public EtatPersonnage getEtat() {
+        return this.etat;
     }
 
     public static class Builder {
